@@ -5,6 +5,7 @@
 
 <div class="content-wrapper">
     <div class="container-full">
+
       <!-- Content Header (Page header) -->
       <div class="content-header">
           <div class="d-flex align-items-center">
@@ -30,7 +31,7 @@
            <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title">User List</h3>
-                <a href="" style="float: right;" class="btn btn-rounded btn-primary mb-5">Add User</a>
+                <a href="{{ route('user.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5">Add User</a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">

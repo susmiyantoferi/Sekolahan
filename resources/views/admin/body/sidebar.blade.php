@@ -34,7 +34,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('user.view') }}"><i class="fa fa-users"></i>View User</a></li>
-            <li><a href="calendar.html"><i class="fa fa-user-plus"></i>Add User</a></li>
+            <li><a href="{{ route('user.add') }}"><i class="fa fa-user-plus"></i>Add User</a></li>
           </ul>
         </li> 
 		  
