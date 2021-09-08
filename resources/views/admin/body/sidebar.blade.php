@@ -34,7 +34,7 @@ $route = Route::current()->getName();
 		
         <li class="treeview {{ ($prefix == '/users')? 'active':'' }}" >
           <a href="#">
-            <i class="mdi mdi-account-settings-variant"></i>
+            <i data-feather="users"></i>
             <span>Manage User</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
@@ -48,7 +48,7 @@ $route = Route::current()->getName();
 		  
         <li class="treeview {{ ($prefix == '/profile')? 'active':'' }}">
           <a href="#">
-            <i class="mdi mdi-account-key"></i> <span>Manage Profile</span>
+            <i data-feather="user-check"></i> <span>Manage Profile</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
@@ -56,6 +56,19 @@ $route = Route::current()->getName();
           <ul class="treeview-menu">
             <li><a href="{{ route('profile.view') }}"><i class="ti-more"></i>Your Profil</a></li>
             <li><a href="{{ route('password.view') }}"><i class="ti-more"></i>Change Password</a></li>
+
+          </ul>
+        </li>
+
+        <li class="treeview {{ ($prefix == '/setup')? 'active':'' }}">
+          <a href="#">
+            <i data-feather="archive"></i> <span>Setup Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ route('student.class.view') }}"><i class="ti-more"></i>Student Class</a></li>
 
           </ul>
         </li>
