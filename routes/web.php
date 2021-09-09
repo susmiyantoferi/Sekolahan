@@ -65,4 +65,9 @@ Route::prefix('setup')->group(function () {
 
     //Student Year Route & Student Year Controller
     Route::get('/student/year/view', [StudentYearController::class, 'ViewYear'])->name('student.year.view');
+    Route::get('/student/year/add', [StudentYearController::class, 'AddYear'])->name('student.year.add');
+    Route::post('/student/year/store', [StudentYearController::class, 'StudentYearStore'])->name('store.student.year');
+    Route::get('/student/year/edit/{id}', [StudentYearController::class, 'StudentYearEdit'])->name('student.year.edit');
+    Route::post('/student/year/update/{id}', [StudentYearController::class, 'StudentYearUpdate'])->name('update.student.year');
+    Route::get('/student/year/delete/{id}', [StudentYearController::class, 'StudentYearDelete'])->name('student.year.delete');
 });
