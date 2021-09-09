@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
+use App\Http\Controllers\Backend\Setup\StudentYearController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,10 +55,14 @@ Route::prefix('profile')->group(function () {
 //All Route Student Class
 Route::prefix('setup')->group(function () {
 
+    //Student Class Route
     Route::get('/student/class/view', [StudentClassController::class, 'ViewStudent'])->name('student.class.view');
     Route::get('/student/class/add', [StudentClassController::class, 'StudentAddClass'])->name('student.class.add');
     Route::post('/student/class/store', [StudentClassController::class, 'StudentClassStore'])->name('store.student.class');
     Route::get('/student/class/edit/{id}', [StudentClassController::class, 'StudentClassEdit'])->name('student.class.edit');
     Route::post('/student/class/update/{id}', [StudentClassController::class, 'StudentClassUpdate'])->name('update.student.class');
     Route::get('/student/class/delete/{id}', [StudentClassController::class, 'StudentClassDelete'])->name('student.class.delete');
+
+    //Student Year Route & Student Year Controller
+    Route::get('/student/year/view', [StudentYearController::class, 'ViewYear'])->name('student.year.view');
 });
