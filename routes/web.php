@@ -74,4 +74,9 @@ Route::prefix('setup')->group(function () {
 
     //Student Group Route & Student Group Controller
     Route::get('/student/group/view', [StudentGroupController::class, 'ViewGroup'])->name('student.group.view');
+    Route::get('/student/group/add', [StudentGroupController::class, 'AddGroup'])->name('student.group.add');
+    Route::post('/student/group/store', [StudentGroupController::class, 'StudentGroupStore'])->name('store.student.group');
+    Route::get('/student/group/edit/{id}', [StudentGroupController::class, 'StudentGroupEdit'])->name('student.group.edit');
+    Route::post('/student/group/update/{id}', [StudentGroupController::class, 'StudentGroupUpdate'])->name('update.student.group');
+    Route::get('/student/group/delete/{id}', [StudentGroupController::class, 'StudentGroupDelete'])->name('student.group.delete');
 });
