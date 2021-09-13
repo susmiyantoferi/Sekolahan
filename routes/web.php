@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
 use App\Http\Controllers\Backend\Setup\StudentYearController;
 use App\Http\Controllers\Backend\Setup\StudentGroupController;
+use App\Http\Controllers\Backend\Setup\StudentShiftController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,4 +80,7 @@ Route::prefix('setup')->group(function () {
     Route::get('/student/group/edit/{id}', [StudentGroupController::class, 'StudentGroupEdit'])->name('student.group.edit');
     Route::post('/student/group/update/{id}', [StudentGroupController::class, 'StudentGroupUpdate'])->name('update.student.group');
     Route::get('/student/group/delete/{id}', [StudentGroupController::class, 'StudentGroupDelete'])->name('student.group.delete');
+
+    //Student Shift Route & Student Shift Controller
+    Route::get('/student/shift/view', [StudentShiftController::class, 'ViewShift'])->name('student.shift.view');
 });
