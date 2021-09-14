@@ -101,4 +101,5 @@ Route::prefix('setup')->group(function () {
 
     //Fee Category Amount Route & Fee Category Amount Controller
     Route::get('/fee/amount/view', [FeeAmountController::class, 'ViewFeeAmount'])->name('fee.amount.view');
+    Route::get('/fee/amount/add', [FeeAmountController::class, 'AddFeeAmount'])->name('fee.amount.add');
 });
