@@ -87,4 +87,10 @@ class FeeAmountController extends Controller
 
         return redirect()->route('fee.amount.view')->with($notification);
     }
+
+    public function FeeAmountDetails($fee_category_id)
+    {
+        $data['detailsData'] = FeeCategoryAmount::where('fee_category_id', $fee_category_id)->orderBy('class_id', 'asc')->get();
+        return view('backend.setup.fee_amount.details_fee_amount', $data);
+    }
 }
