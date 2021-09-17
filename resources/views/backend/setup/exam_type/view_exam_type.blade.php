@@ -31,7 +31,7 @@
            <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title"> Exam Type List</h3>
-                <a href="{{ route('fee.category.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5">Add Exam Type</a>
+                <a href="{{ route('exam.type.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5">Add Exam Type</a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -51,8 +51,8 @@
                               <td>{{ $key+1 }}</td>
                               <td>{{ $exam->name }}</td>
                               <td>
-                                <a href="{{ route('fee.category.edit',$exam->id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('fee.category.delete',$exam->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                                <a href="{{ route('exam.type.edit',$exam->id) }}" class="btn btn-info">Edit</a>
+                                <a href="{{ route('exam.type.delete',$exam->id) }}" class="btn btn-danger" id="delete">Delete</a>
                               </td>
                               
                           </tr>
