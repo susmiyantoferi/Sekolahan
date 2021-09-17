@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\Setup\StudentGroupController;
 use App\Http\Controllers\Backend\Setup\StudentShiftController;
 use App\Http\Controllers\Backend\Setup\FeeCatrgoryController;
 use App\Http\Controllers\Backend\Setup\FeeAmountController;
+use App\Http\Controllers\Backend\Setup\ExamTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -106,4 +107,7 @@ Route::prefix('setup')->group(function () {
     Route::get('/fee/amount/edit/{fee_category_id}', [FeeAmountController::class, 'FeeAmountEdit'])->name('fee.amount.edit');
     Route::post('/fee/amount/update/{fee_category_id}', [FeeAmountController::class, 'FeeAmountUpdate'])->name('update.fee.amount');
     Route::get('/fee/amount/details/{fee_category_id}', [FeeAmountController::class, 'FeeAmountDetails'])->name('fee.amount.details');
+
+    //Exam Type Route & Exam Type Controller
+    Route::get('/exam/type/view', [ExamTypeController::class, 'ViewExamType'])->name('exam.type.view');
 });
