@@ -11,6 +11,7 @@ use App\Http\Controllers\Backend\Setup\StudentShiftController;
 use App\Http\Controllers\Backend\Setup\FeeCatrgoryController;
 use App\Http\Controllers\Backend\Setup\FeeAmountController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
+use App\Http\Controllers\Backend\Setup\SchoolSubjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -115,4 +116,7 @@ Route::prefix('setup')->group(function () {
     Route::get('/exam/type/edit/{id}', [ExamTypeController::class, 'ExamTypeEdit'])->name('exam.type.edit');
     Route::post('/exam/type/update/{id}', [ExamTypeController::class, 'ExamTypeUpdate'])->name('update.exam.type');
     Route::get('/exam/type/delete/{id}', [ExamTypeController::class, 'ExamTypeDelete'])->name('exam.type.delete');
+
+    //School Subject Route & School Subject Controller
+    Route::get('/school/subject/view', [SchoolSubjectController::class, 'ViewSchoolSub'])->name('school.subject.view');
 });
