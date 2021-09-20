@@ -119,4 +119,9 @@ Route::prefix('setup')->group(function () {
 
     //School Subject Route & School Subject Controller
     Route::get('/school/subject/view', [SchoolSubjectController::class, 'ViewSchoolSub'])->name('school.subject.view');
+    Route::get('/school/subject/add', [SchoolSubjectController::class, 'AddSchoolSub'])->name('school.subject.add');
+    Route::post('/school/subject/store', [SchoolSubjectController::class, 'StoreSchoolSubj'])->name('store.school.subject');
+    Route::get('/school/subject/edit/{id}', [SchoolSubjectController::class, 'EditSchoolSub'])->name('school.subject.edit');
+    Route::post('/school/subject/update/{id}', [SchoolSubjectController::class, 'UpdateSchoolSubj'])->name('update.school.subject');
+    Route::get('/school/subject/delete/{id}', [SchoolSubjectController::class, 'DeleteSchoolSub'])->name('school.subject.delete');
 });
