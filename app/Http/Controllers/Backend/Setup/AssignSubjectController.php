@@ -16,4 +16,11 @@ class AssignSubjectController extends Controller
         //$data['allData'] = FeeCategoryAmount::select('fee_category_id')->groupBy('fee_category_id')->get();
         return view('backend.setup.assign_subject.view_assign_subject', $data);
     }
+
+    public function AddAssignSubj()
+    {
+        $data['subjects'] = SchoolSubject::all();
+        $data['classes'] = StudentClass::all();
+        return view('backend.setup.assign_subject.add_assign_subject', $data);
+    }
 }
