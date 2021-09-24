@@ -20,7 +20,7 @@
                <div class="box-body">
                  <div class="row">
                    <div class="col">
-                       <form method="POST" action="{{ route('store.fee.amount') }}">
+                       <form method="POST" action="{{ route('store.assign.subject') }}">
                         @csrf
                          <div class="row">
                            <div class="col-12">	
