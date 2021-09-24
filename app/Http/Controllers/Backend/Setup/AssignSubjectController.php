@@ -12,8 +12,8 @@ class AssignSubjectController extends Controller
 {
     public function ViewAssignSubj()
     {
-        $data['allData'] = AssignSubject::all();
-        //$data['allData'] = FeeCategoryAmount::select('fee_category_id')->groupBy('fee_category_id')->get();
+        //$data['allData'] = AssignSubject::all();
+        $data['allData'] = AssignSubject::select('class_id')->groupBy('class_id')->get();
         return view('backend.setup.assign_subject.view_assign_subject', $data);
     }
 
@@ -24,7 +24,8 @@ class AssignSubjectController extends Controller
         return view('backend.setup.assign_subject.add_assign_subject', $data);
     }
 
-    public function StoreAssignSubj(Request $request){
+    public function StoreAssignSubj(Request $request)
+    {
         $subjectCount = count($request->subject_id);
         if ($subjectCount != Null) {
             for ($i = 0; $i < $subjectCount; $i++) {
