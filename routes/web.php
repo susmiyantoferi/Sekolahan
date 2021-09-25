@@ -130,4 +130,6 @@ Route::prefix('setup')->group(function () {
     Route::get('/assign/subject/view', [AssignSubjectController::class, 'ViewAssignSubj'])->name('assign.subject.view');
     Route::get('/assign/subject/add', [AssignSubjectController::class, 'AddAssignSubj'])->name('assign.subject.add');
     Route::post('/assign/subject/store', [AssignSubjectController::class, 'StoreAssignSubj'])->name('store.assign.subject');
+    Route::get('/assign/subject/edit/{class_id}', [AssignSubjectController::class, 'EditAssignSubj'])->name('assign.subject.edit');
+    Route::post('/assign/subject/update/{class_id}', [AssignSubjectController::class, 'UpdateAssignSubj'])->name('update.assign.subject');
 });
