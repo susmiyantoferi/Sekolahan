@@ -57,7 +57,8 @@ class AssignSubjectController extends Controller
         return view('backend.setup.assign_subject.edit_assign_subject', $data);
     }
 
-    public function UpdateAssignSubj(Request $request, $class_id){
+    public function UpdateAssignSubj(Request $request, $class_id)
+    {
         if ($request->subject_id == null) {
             $notification = array(
                 'message' => 'Sorry You Do Not Select Any School Subject',
@@ -88,5 +89,11 @@ class AssignSubjectController extends Controller
         );
 
         return redirect()->route('assign.subject.view')->with($notification);
+    }
+
+    public function DetailsAssignSubj($class_id)
+    {
+        $data['detailsData'] = AssignSubject::where('class_id', $class_id)->orderBy('subject_id', 'asc')->get();
+        return view('backend.setup.assign_subject.details_assign_subject', $data);
     }
 }
