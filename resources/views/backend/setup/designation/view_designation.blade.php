@@ -51,8 +51,8 @@
                               <td>{{ $key+1 }}</td>
                               <td>{{ $designation->name }}</td>
                               <td>
-                                <a href="{{ route('exam.type.edit',$designation->id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('exam.type.delete',$designation->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                                <a href="{{ route('designation.edit',$designation->id) }}" class="btn btn-info">Edit</a>
+                                <a href="{{ route('designation.delete',$designation->id) }}" class="btn btn-danger" id="delete">Delete</a>
                               </td>
                               
                           </tr>
