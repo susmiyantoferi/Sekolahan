@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\Setup\FeeAmountController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
 use App\Http\Controllers\Backend\Setup\SchoolSubjectController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
+use App\Http\Controllers\Backend\Setup\DesignationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -133,4 +134,8 @@ Route::prefix('setup')->group(function () {
     Route::get('/assign/subject/edit/{class_id}', [AssignSubjectController::class, 'EditAssignSubj'])->name('assign.subject.edit');
     Route::post('/assign/subject/update/{class_id}', [AssignSubjectController::class, 'UpdateAssignSubj'])->name('update.assign.subject');
     Route::get('/assign/subject/details/{class_id}', [AssignSubjectController::class, 'DetailsAssignSubj'])->name('assign.subject.details');
+
+    // Designation Route & Designation  Controller
+    Route::get('/designation/view', [DesignationController::class, 'ViewDesination'])->name('designation.view');
+    Route::get('/designation/add', [DesignationController::class, 'AddDesination'])->name('designation.add');
 });
