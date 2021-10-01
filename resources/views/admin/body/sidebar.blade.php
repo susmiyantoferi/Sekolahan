@@ -85,7 +85,7 @@ $route = Route::current()->getName();
 
         <li class="treeview {{ ($prefix == '/students')? 'active':'' }}">
           <a href="#">
-            <i data-feather="archive"></i> <span>Setudent Management</span>
+            <i data-feather="briefcase"></i> <span>Setudent Management</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
