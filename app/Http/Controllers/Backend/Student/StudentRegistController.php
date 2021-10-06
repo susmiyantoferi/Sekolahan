@@ -15,4 +15,9 @@ class StudentRegistController extends Controller
         $data['allData'] = AssignStudent::all();
         return view('backend.student.student_regist.student_view', $data);
     }
+
+    public function AddStudentRegist()
+    {
+        return view('backend.student.student_regist.student_add');
+    }
 }

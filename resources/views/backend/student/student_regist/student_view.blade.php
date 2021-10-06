@@ -31,7 +31,7 @@
            <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title">Student List</h3>
-                <a href="{{ route('student.year.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5">Add Student</a>
+                <a href="{{ route('student.registration.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5">Add Student</a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
