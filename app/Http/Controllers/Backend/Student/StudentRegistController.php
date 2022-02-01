@@ -28,4 +28,8 @@ class StudentRegistController extends Controller
         $data['shifts'] = StudentShift::all();
         return view('backend.student.student_regist.student_add', $data);
     }
+
+    public function AddStudentStore(Request $request)
+    {
+    }
 }
