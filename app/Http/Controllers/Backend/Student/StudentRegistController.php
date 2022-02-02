@@ -30,7 +30,7 @@ class StudentRegistController extends Controller
         return view('backend.student.student_regist.student_add', $data);
     }
 
-    public function AddStudentStore(Request $request)
+    public function StudentRegStore(Request $request)
     {
         DB::transaction(function () use ($request) {
             $checkYear = StudentYear::find($request->year_id)->name;
@@ -49,25 +49,23 @@ class StudentRegistController extends Controller
             } else {
                 $student = User::where('usertype', 'Student')->orderBy('id', 'DESC')->first()->id;
                 $studentId = $student + 1;
-                if ($student == null) {
-                    $firstReg = 0;
-                    $studentId = $firstReg + 1;
-                    if ($studentId < 10) {
-                        $id_no = '000' . $studentId;
-                    } elseif ($studentId < 100) {
-                        $id_no = '00' . $studentId;
-                    } elseif ($studentId < 1000) {
-                        $id_no = '0' . $studentId;
-                    }
+                if ($studentId < 10) {
+                    $id_no = '000' . $studentId;
+                } elseif ($studentId < 100) {
+                    $id_no = '00' . $studentId;
+                } elseif ($studentId < 1000) {
+                    $id_no = '0' . $studentId;
                 }
             } //end else
 
+            //insert in table users
             $final_id_no =  $checkYear . $id_no;
             $user = new User();
-            $code = rand(000, 999);
+            $code = rand(0000, 9999);
             $user->id_no = $final_id_no;
             $user->password = bcrypt($code);
             $user->usertype = 'Student';
+            $user->code = $code;
             $user->name = $request->name;
             $user->f_name = $request->f_name;
             $user->m_name = $request->m_name;
@@ -84,6 +82,29 @@ class StudentRegistController extends Controller
                 $user['image'] = $filename;
             }
             $user->save();
+
+            //insert in table assign_student
+            $assign_student = new AssignStudent();
+            $assign_student->student_id = $user->id;
+            $assign_student->year_id = $request->year_id;
+            $assign_student->group_id = $request->group_id;
+            $assign_student->class_id = $request->class_id;
+            $assign_student->shift_id = $request->shift_id;
+            $assign_student->save();
+
+            //insert in table discount_student
+            $discount_student = new DiscountStudent();
+            $discount_student->assign_student_id = $assign_student->id;
+            $discount_student->fee_category_id = '1';
+            $discount_student->discount = $request->discount;
+            $discount_student->save();
         });
+
+        $notification = array(
+            'message' => 'Student Registration Inserted Successfully',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('student.registration.view')->with($notification);
     } //end method
 }
