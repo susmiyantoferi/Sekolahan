@@ -17,6 +17,8 @@ class StudentRegistController extends Controller
 {
     public function ViewStudentRegist()
     {
+        $data['years'] = StudentYear::all();
+        $data['classes'] = StudentClass::all();
         $data['allData'] = AssignStudent::all();
         return view('backend.student.student_regist.student_view', $data);
     }
