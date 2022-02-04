@@ -26,6 +26,8 @@
       <section class="content">
         <div class="row">
 
+        <div class="col-12">
+
           <div class="box bb-3 border-warning">
             <div class="box-header">
             <h4 class="box-title">Student <strong>Search</strong></h4>
@@ -85,6 +87,7 @@
 
             </div>
           </div>
+        </div> {{--end first col 12 --}}
 
           <div class="col-12">
 
