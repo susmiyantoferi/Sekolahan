@@ -26,6 +26,17 @@ class StudentRegistController extends Controller
         return view('backend.student.student_regist.student_view', $data);
     }
 
+    public function StudentClassYearSearch(Request $request)
+    {
+        $data['years'] = StudentYear::all();
+        $data['classes'] = StudentClass::all();
+
+        $data['year_id'] = $request->year_id;
+        $data['class_id'] = $request->class_id;
+        $data['allData'] = AssignStudent::where('year_id', $request->year_id)->where('class_id', $request->class_id)->get();
+        return view('backend.student.student_regist.student_view', $data);
+    }
+
     public function AddStudentRegist()
     {
         $data['years'] = StudentYear::all();

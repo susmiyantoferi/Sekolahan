@@ -35,7 +35,7 @@
   
             <div class="box-body">
               
-              <form method="" action="">
+              <form method="GET" action="{{ route('student.year.class.search') }}">
 
                 <div class="row">
 
@@ -98,7 +98,9 @@
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                  <div class="table-responsive">
+                  <div class="table-responsive">             
+
+                    @if(!@"search")
                     <table id="example1" class="table table-bordered table-striped">
                       <thead>
                           <tr>
@@ -142,6 +144,55 @@
                           
                       </tfoot>
                     </table>
+
+                  @else
+                  <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th width="5%">No</th>
+                            <th>ID No</th>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Class</th>
+                            <th>Years</th>
+                            <th>Image</th>
+                            @if (Auth::user()->role == "Admin")
+                            <th>Code</th>
+                            @endif
+                            <th width="25%">Action</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @foreach ($allData as $key => $data)
+                        <tr>
+                            <td>{{ $key+1 }}</td>
+                            <td>{{ $data['student']['id_no'] }}</td>
+                            <td>{{ $data['student']['name'] }}</td>
+                            <td>{{ $data->roll }} </td>
+                            <td>{{ $data['student_class']['name'] }}</td>
+                            <td>{{ $data['student_year']['name'] }}</td>
+                            <td>
+                              <img  src="{{ (!empty($data['student']['image'])) ? url('upload/student_images/'.$data['student']['image']): url('upload/no_image.jpg') }}" 
+                              style="width: 60px; width: 60px; ">
+                            </td>
+                            <td>{{ $data->year_id }}</td>
+                            <td>
+                              <a href="" class="btn btn-info">Edit</a>
+                              <a href="" class="btn btn-danger" id="delete">Delete</a>
+                            </td>
+                            
+                        </tr>
+                      @endforeach
+                    </tbody>
+                    <tfoot>
+                        
+                    </tfoot>
+                  </table>
+
+
+                  @endif  
+
                   </div>
               </div>
               <!-- /.box-body -->
