@@ -133,7 +133,7 @@
                               </td>
                               <td>{{ $data->year_id }}</td>
                               <td>
-                                <a href="" class="btn btn-info">Edit</a>
+                                <a href="{{ route('student.registration.edit', $data->student_id ) }}" class="btn btn-info">Edit</a>
                                 <a href="" class="btn btn-danger" id="delete">Delete</a>
                               </td>
                               
@@ -178,7 +178,7 @@
                             </td>
                             <td>{{ $data->year_id }}</td>
                             <td>
-                              <a href="" class="btn btn-info">Edit</a>
+                              <a href="{{ route('student.registration.edit', $data->student_id ) }}" class="btn btn-info">Edit</a>
                               <a href="" class="btn btn-danger" id="delete">Delete</a>
                             </td>
                             
