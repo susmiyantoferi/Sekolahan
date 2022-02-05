@@ -22,8 +22,10 @@
                <div class="box-body">
                  <div class="row">
                    <div class="col">
-                       <form method="POST" action="{{ route('store.student.registration') }}" enctype="multipart/form-data">
+                       <form method="POST" action="{{ route('update.student.registration', $EditData->student_id) }}" enctype="multipart/form-data">
                         @csrf
+                        <input type="hidden" name="id" value="{{ $EditData->id }}">
+
                          <div class="row">
                            <div class="col-12">	
                          
@@ -255,7 +257,7 @@
                                     
 
                            <div class="text-xs-right">
-                               <input type="submit" class="btn btn-rounded btn-info mb-5" value="Submit" >
+                               <input type="submit" class="btn btn-rounded btn-info mb-5" value="Update" >
                                <a href="/students/registration/view" class="btn btn-rounded btn-primary mb-5">Back</a>
                            </div>
                        </form>
