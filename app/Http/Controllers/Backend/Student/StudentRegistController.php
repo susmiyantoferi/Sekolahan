@@ -12,6 +12,7 @@ use App\Models\StudentYear;
 use App\Models\User;
 use App\Models\DiscountStudent;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class StudentRegistController extends Controller
 {
@@ -193,7 +194,8 @@ class StudentRegistController extends Controller
         return view('backend.student.student_regist.student_promotion', $data);
     }
 
-    public function StudentUpdatePromotion(Request $request, $student_id){
+    public function StudentUpdatePromotion(Request $request, $student_id)
+    {
         DB::transaction(function () use ($request, $student_id) {
 
             //Update in table users
@@ -239,5 +241,13 @@ class StudentRegistController extends Controller
         );
 
         return redirect()->route('student.registration.view')->with($notification);
+    }
+
+    public function StudentRegDetails($student_id)
+    {
+        $data['details'] = AssignStudent::with(['student', 'discount'])->where('student_id', $student_id)->first();
+        $pdf = PDF::loadView('backend.student.student_regist.student_details_pdf', $data);
+        $pdf->SetProtection(['copy', 'print'], '', 'pass');
+        return $pdf->stream('document.pdf');
     }
 }
