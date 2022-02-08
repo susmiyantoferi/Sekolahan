@@ -37,7 +37,8 @@
   
             <div class="box-body">
               
-              <form method="GET" action="{{ route('student.year.class.search') }}">
+              <form method="POST" action="{{ route('roll.generate.store') }}">
+                @csrf
 
                 <div class="row">
 
