@@ -163,6 +163,7 @@ Route::prefix('students')->group(function () {
     Route::post('/registration/update/promotion/{student_id}', [StudentRegistController::class, 'StudentUpdatePromotion'])->name('promotion.student.registration');
     Route::get('/registration/details/{student_id}', [StudentRegistController::class, 'StudentRegDetails'])->name('student.registration.details');
 
-    //Student Registration Route
+    //Student Roll Generate Route
     Route::get('/roll/generate/view', [StudentRollController::class, 'StudentRollView'])->name('roll.generate.view');
+    Route::get('/reg/getstudents', [StudentRollController::class, 'GetStudents'])->name('student.registration.getstudents');
 });
