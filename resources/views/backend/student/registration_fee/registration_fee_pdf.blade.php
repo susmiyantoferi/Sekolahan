@@ -30,11 +30,20 @@
 
 <table id="customers" >
     <tr>
-      <td><h2>Easy School Learning</h2></td>
-      <td><h2>Easy Bootcamp</h2>
+      <td>
+        <h2>
+
+          <?php $image_path = '/upload/sekolahan.png'; ?>
+          <img src="{{ public_path().$image_path }}" width="200" height="100">
+
+        </h2>
+      </td>
+
+      <td><h2>Easy Bootcamp Learning</h2>
         <p>School Address : INDONESIA</p>
         <p>School Phone : 9493666</p>
         <p>School Email : easyschool@gmail.com</p>
+        <p><b> Student Registration Fee </b></p>
      </td>
     </tr>
 </table>

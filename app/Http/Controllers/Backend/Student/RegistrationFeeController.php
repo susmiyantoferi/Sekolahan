@@ -81,6 +81,6 @@ class RegistrationFeeController extends Controller
 
         $pdf = PDF::loadView('backend.student.registration_fee.registration_fee_pdf', $allStudent);
         $pdf->SetProtection(['copy', 'print'], '', 'pass');
-        return $pdf->stream('payslip.pdf');
+        return $pdf->stream('registration_fee_payslip.pdf');
     }
 }

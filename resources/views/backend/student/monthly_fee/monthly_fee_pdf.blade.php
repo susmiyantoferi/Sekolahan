@@ -43,10 +43,22 @@
         <p>School Address : INDONESIA</p>
         <p>School Phone : 9493666</p>
         <p>School Email : easyschool@gmail.com</p>
-        <p><b> Student Registration Data </b></p>
+        <p><b> Student Monthly Fee </b></p>
      </td>
     </tr>
 </table>
+
+@php
+
+$registrationfee = App\Models\FeeCategoryAmount::where('fee_category_id', '5')
+->where('class_id', $details->class_id)->first();
+    
+    $originalfee = $registrationfee->amount;
+    $discount = $details['discount']['discount'];
+    $discounttablefee = $discount / 100 * $originalfee;
+    $finalfee = (float)$originalfee - (float)$discounttablefee;
+
+@endphp
 
 <table id="customers">
   <tr>
@@ -71,64 +83,50 @@
   </tr>
   <tr>
     <td>4</td>
-    <td><b>Fathers Name</b></td>
-    <td>{{ $details['student']['f_name'] }}</td>
-  </tr>
-  <tr>
-    <td>5</td>
-    <td><b>Mothers Name</b></td>
-    <td>{{ $details['student']['m_name'] }}</td>
-  </tr>
-  <tr>
-    <td>6</td>
-    <td><b>Mobile Number</b></td>
-    <td>{{ $details['student']['mobile'] }}</td>
-  </tr>
-  <tr>
-    <td>7</td>
-    <td><b>Address</b></td>
-    <td>{{ $details['student']['address'] }}</td>
-  </tr>
-  <tr>
-    <td>8</td>
-    <td><b>Gender</b></td>
-    <td>{{ $details['student']['gender'] }}</td>
-  </tr>
-  <tr>
-    <td>9</td>
-    <td><b>Religion</b></td>
-    <td>{{ $details['student']['religion'] }}</td>
-  </tr>
-  <tr>
-    <td>10</td>
-    <td><b>Date Of Birth</b></td>
-    <td>{{ $details['student']['dob'] }}</td>
-  </tr>
-  <tr>
-    <td>11</td>
-    <td><b>Discount </b></td>
-    <td>{{ $details['discount']['discount'] }}%</td>
-  </tr>
-  <tr>
-    <td>12</td>
-    <td><b>Year</b></td>
-    <td>{{ $details['student_year']['name'] }}</td>
-  </tr>
-  <tr>
-    <td>13</td>
     <td><b>Class</b></td>
     <td>{{ $details['student_class']['name'] }}</td>
   </tr>
   <tr>
-    <td>14</td>
-    <td><b>Group</b></td>
-    <td>{{ $details['group']['name'] }}</td>
+    <td>5</td>
+    <td><b>Session</b></td>
+    <td>{{ $details['student_year']['name'] }}</td>
   </tr>
   <tr>
-    <td>15</td>
-    <td><b>Shift</b></td>
-    <td>{{ $details['shift']['name'] }}</td>
+    <td>6</td>
+    <td><b>Fathers Name</b></td>
+    <td>{{ $details['student']['f_name'] }}</td>
   </tr>
+  <tr>
+    <td>7</td>
+    <td><b>Mothers Name</b></td>
+    <td>{{ $details['student']['m_name'] }}</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td><b>Mobile Number</b></td>
+    <td>{{ $details['student']['mobile'] }}</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td><b>Address</b></td>
+    <td>{{ $details['student']['address'] }}</td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td><b>Monthly Fee</b></td>
+    <td>{{ $originalfee }}$</td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td><b>Discount Fee</b></td>
+    <td>{{ $discount }}%</td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td><b>After Discount Fee For {{ $month }}</b></td>
+    <td>{{ $finalfee }}$</td>
+  </tr>
+  
 </table>
 <br>
 <i style="font-size: 10px; float: right;"> Print Date :  {{ date("d M Y") }}</i>

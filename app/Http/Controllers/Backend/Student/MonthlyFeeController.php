@@ -65,10 +65,24 @@ class MonthlyFeeController extends Controller
             $html[$key]['tdsource'] .= '<td>' . $finalfee . '$' . '</td>';
             $html[$key]['tdsource'] .= '<td>';
             $html[$key]['tdsource'] .= '<a class="btn btn-sm btn-' . $color . '" title="PaySlip" target="_blanks" 
-            href="' . route("student.registration.fee.payslip") . '?class_id=' . $v->class_id .
+            href="' . route("student.monthly.fee.payslip") . '?class_id=' . $v->class_id .
                 '&student_id=' . $v->student_id . '&month=' . $request->month . '">Fee Slip</a>';
             $html[$key]['tdsource'] .= '</td>';
         }
         return response()->json(@$html);
     } // end method 
+
+    public function MonthlyFeePayslip(Request $request)
+    {
+        $student_id = $request->student_id;
+        $class_id = $request->class_id;
+        $data['month'] = $request->month;
+
+        $data['details'] = AssignStudent::with(['student', 'discount'])->where('student_id', $student_id)
+            ->where('class_id', $class_id)->first();
+
+        $pdf = PDF::loadView('backend.student.monthly_fee.monthly_fee_pdf', $data);
+        $pdf->SetProtection(['copy', 'print'], '', 'pass');
+        return $pdf->stream('monthly_fee_payslip.pdf');
+    }
 }
