@@ -131,7 +131,11 @@
                                 <img  src="{{ (!empty($data['student']['image'])) ? url('upload/student_images/'.$data['student']['image']): url('upload/no_image.jpg') }}" 
                                 style="width: 60px; width: 60px; ">
                               </td>
-                              <td>{{ $data->year_id }}</td>
+
+                              @if (Auth::user()->role == "Admin")
+                              <td>{{ $data['student']['code'] }}</td>
+                              @endif
+
                               <td>
                                 <a title="Edit" href="{{ route('student.registration.edit', $data->student_id ) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
                                 <a title="Promotion" href="{{ route('student.registration.promotion', $data->student_id ) }}" class="btn btn-primary" ><i class="fa fa-check"></i></a>
@@ -177,7 +181,11 @@
                               <img  src="{{ (!empty($data['student']['image'])) ? url('upload/student_images/'.$data['student']['image']): url('upload/no_image.jpg') }}" 
                               style="width: 60px; width: 60px; ">
                             </td>
-                            <td>{{ $data->year_id }}</td>
+
+                            @if (Auth::user()->role == "Admin")
+                            <td>{{ $data['student']['code'] }}</td>
+                            @endif
+
                             <td>
                               <a title="Edit" href="{{ route('student.registration.edit', $data->student_id ) }}" class="btn btn-info"><i class="fa fa-edit"></i></a>
                               <a title="Promotion" href="{{ route('student.registration.promotion', $data->student_id ) }}" class="btn btn-primary" ><i class="fa fa-check"></i></a>

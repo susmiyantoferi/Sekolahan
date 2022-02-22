@@ -195,5 +195,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::prefix('employees')->group(function () {
 
         Route::get('regist/employee/view', [EmployeeRegistController::class, 'EmployeeView'])->name('employee.registration.view');
+        Route::get('regist/employee/add', [EmployeeRegistController::class, 'EmployeeAdd'])->name('employee.registration.add');
     });
 });  //end middleware auth route 
