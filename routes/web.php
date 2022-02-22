@@ -20,6 +20,7 @@ use App\Http\Controllers\Backend\Student\MonthlyFeeController;
 use App\Http\Controllers\Backend\Student\RegistrationFeeController;
 use App\Http\Controllers\Backend\Student\StudentRegistController;
 use App\Http\Controllers\Backend\Student\StudentRollController;
+use App\Http\Controllers\Backend\Employee\EmployeeRegistController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -188,5 +189,11 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/exam/fee/view', [ExamFeeController::class, 'ExamFeeView'])->name('exam.fee.view');
         Route::get('/exam/fee/wisedata', [ExamFeeController::class, 'ExamFeeClassData'])->name('student.exam.fee.classwise.get');
         Route::get('/exam/fee/payslip', [ExamFeeController::class, 'ExamFeePayslip'])->name('student.exam.fee.payslip');
+    });
+
+    //view employees All route
+    Route::prefix('employees')->group(function () {
+
+        Route::get('regist/employee/view', [EmployeeRegistController::class, 'EmployeeView'])->name('employee.registration.view');
     });
 });  //end middleware auth route 
