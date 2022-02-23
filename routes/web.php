@@ -196,5 +196,6 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::get('regist/employee/view', [EmployeeRegistController::class, 'EmployeeView'])->name('employee.registration.view');
         Route::get('regist/employee/add', [EmployeeRegistController::class, 'EmployeeAdd'])->name('employee.registration.add');
+        Route::post('regist/employee/store', [EmployeeRegistController::class, 'EmployeeStore'])->name('store.employee.registration');
     });
 });  //end middleware auth route 

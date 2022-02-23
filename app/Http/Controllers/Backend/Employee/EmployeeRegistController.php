@@ -30,4 +30,8 @@ class EmployeeRegistController extends Controller
         $data['designation'] = Designation::all();
         return view('backend.employee.employee_regist.employee_add', $data);
     }
+
+    public function EmployeeStore(Request $request){
+
+    }
 }
