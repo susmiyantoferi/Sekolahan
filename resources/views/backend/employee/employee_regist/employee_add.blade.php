@@ -204,7 +204,7 @@
 
                            <div class="text-xs-right">
                                <input type="submit" class="btn btn-rounded btn-info mb-5" value="Submit" >
-                               <a href="/employee/regist/employee/view" class="btn btn-rounded btn-primary mb-5">Back</a>
+                               <a href="/employees/regist/employee/view" class="btn btn-rounded btn-primary mb-5">Back</a>
                            </div>
                        </form>
    
