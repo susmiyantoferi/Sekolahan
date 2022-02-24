@@ -71,7 +71,7 @@
 
                               <td>{{ $employee->join_date }}</td>
                               <td>
-                                <a href="{{ route('designation.edit',$employee->id) }}" class="btn btn-info">Edit</a>
+                                <a href="{{ route('employee.registration.edit',$employee->id) }}" class="btn btn-info">Edit</a>
                                 <a href="{{ route('designation.delete',$employee->id) }}" class="btn btn-danger" id="delete">Delete</a>
                               </td>
                               

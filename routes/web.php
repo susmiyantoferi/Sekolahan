@@ -191,11 +191,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/exam/fee/payslip', [ExamFeeController::class, 'ExamFeePayslip'])->name('student.exam.fee.payslip');
     });
 
-    //view employees All route
+    //view employees registration All route
     Route::prefix('employees')->group(function () {
 
         Route::get('regist/employee/view', [EmployeeRegistController::class, 'EmployeeView'])->name('employee.registration.view');
         Route::get('regist/employee/add', [EmployeeRegistController::class, 'EmployeeAdd'])->name('employee.registration.add');
         Route::post('regist/employee/store', [EmployeeRegistController::class, 'EmployeeStore'])->name('store.employee.registration');
+        Route::get('regist/employee/edit/{id}', [EmployeeRegistController::class, 'EmployeeEdit'])->name('employee.registration.edit');
     });
 });  //end middleware auth route 
