@@ -113,4 +113,36 @@ class EmployeeRegistController extends Controller
         $data['designation'] = Designation::all();
         return view('backend.employee.employee_regist.employee_edit', $data);
     }
+
+    public function EmployeeUpdate(Request $request, $id)
+    {
+
+        //insert in table users
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->f_name = $request->f_name;
+        $user->m_name = $request->m_name;
+        $user->mobile = $request->mobile;
+        $user->address = $request->address;
+        $user->gender = $request->gender;
+        $user->religion = $request->religion;
+        $user->designation_id = $request->designation_id;
+        $user->dob = date('Y-m-d', strtotime($request->dob));
+
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            @unlink(public_path('upload/employee_images/' . $user->image));
+            $filename = date('YmdHi') . $file->getClientOriginalName();
+            $file->move(public_path('upload/employee_images'), $filename);
+            $user['image'] = $filename;
+        }
+        $user->save();
+
+        $notification = array(
+            'message' => 'Employee Registration Updated Successfully',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->route('employee.registration.view')->with($notification);
+    }
 }

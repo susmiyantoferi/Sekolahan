@@ -22,7 +22,7 @@
                <div class="box-body">
                  <div class="row">
                    <div class="col">
-                       <form method="POST" action="{{ route('store.employee.registration') }}" enctype="multipart/form-data">
+                       <form method="POST" action="{{ route('update.employee.registration',$editData->id ) }}" enctype="multipart/form-data">
                         @csrf
                          <div class="row">
                            <div class="col-12">	
