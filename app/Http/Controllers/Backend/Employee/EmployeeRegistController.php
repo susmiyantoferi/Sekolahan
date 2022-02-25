@@ -145,4 +145,12 @@ class EmployeeRegistController extends Controller
 
         return redirect()->route('employee.registration.view')->with($notification);
     }
+
+    public function EmployeeDetails($id)
+    {
+        $data['details'] = User::find($id);
+        $pdf = PDF::loadView('backend.employee.employee_regist.employee_details_pdf', $data);
+        $pdf->SetProtection(['copy', 'print'], '', 'pass');
+        return $pdf->stream('employee_registration_data.pdf');
+    }
 }

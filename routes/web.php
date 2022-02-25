@@ -199,5 +199,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('regist/employee/store', [EmployeeRegistController::class, 'EmployeeStore'])->name('store.employee.registration');
         Route::get('regist/employee/edit/{id}', [EmployeeRegistController::class, 'EmployeeEdit'])->name('employee.registration.edit');
         Route::post('regist/employee/update/{id}', [EmployeeRegistController::class, 'EmployeeUpdate'])->name('update.employee.registration');
+        Route::get('regist/employee/details/{id}', [EmployeeRegistController::class, 'EmployeeDetails'])->name('employee.registration.details');
     });
 });  //end middleware auth route 
