@@ -21,6 +21,7 @@ use App\Http\Controllers\Backend\Student\RegistrationFeeController;
 use App\Http\Controllers\Backend\Student\StudentRegistController;
 use App\Http\Controllers\Backend\Student\StudentRollController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegistController;
+use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -200,5 +201,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('regist/employee/edit/{id}', [EmployeeRegistController::class, 'EmployeeEdit'])->name('employee.registration.edit');
         Route::post('regist/employee/update/{id}', [EmployeeRegistController::class, 'EmployeeUpdate'])->name('update.employee.registration');
         Route::get('regist/employee/details/{id}', [EmployeeRegistController::class, 'EmployeeDetails'])->name('employee.registration.details');
+
+        //view employees registration All route
+        Route::get('salary/employee/view', [EmployeeSalaryController::class, 'SalaryView'])->name('employee.salary.view');
     });
 });  //end middleware auth route 
