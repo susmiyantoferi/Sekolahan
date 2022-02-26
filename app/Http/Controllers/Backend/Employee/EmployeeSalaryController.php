@@ -25,11 +25,12 @@ class EmployeeSalaryController extends Controller
         return view('backend.employee.employee_salary.employee_salary_increment', $data);
     }
 
-    public function SalaryIncrementStore(Request $request, $id){
-       //insert in table user
+    public function SalaryIncrementStore(Request $request, $id)
+    {
+        //insert in table user
         $user = User::find($id);
         $previous_salary = $user->salary;
-        $present_salary = (float)$previous_salary+(float)$request->increment_salary;
+        $present_salary = (float)$previous_salary + (float)$request->increment_salary;
         $user->salary = $present_salary;
         $user->save();
 
@@ -39,7 +40,7 @@ class EmployeeSalaryController extends Controller
         $salaryData->previous_salary = $previous_salary;
         $salaryData->increment_salary = $request->increment_salary;
         $salaryData->present_salary = $present_salary;
-        $salaryData->effected_salary = date('Y-m-d', strtotime($request->effected_salary)) ;
+        $salaryData->effected_salary = date('Y-m-d', strtotime($request->effected_salary));
         $salaryData->save();
 
 
@@ -49,6 +50,14 @@ class EmployeeSalaryController extends Controller
         );
 
         return redirect()->route('employee.salary.view')->with($notification);
+    }
 
+    public function SalaryDetails($id)
+    {
+        $data['details'] = User::find($id);
+        $data['salary_log'] = EmployeeSalaryLog::where('employee_id', $data['details']->id)->get();
+        // dd($data['salary_log']->toArray());
+
+        return view('backend.employee.employee_salary.employee_salary_details', $data);
     }
 }
