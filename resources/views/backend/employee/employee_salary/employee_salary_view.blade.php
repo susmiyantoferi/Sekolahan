@@ -61,7 +61,7 @@
                               <td>${{ $salary->salary }}</td>
                               <td>{{date('d-m-Y', strtotime($salary->join_date)) }}</td>
                               <td>
-                                <a href="{{ route('employee.registration.edit',$salary->id) }}" class="btn btn-info" title="Increment"><i class="fa fa-plus-circle"></i></a>
+                                <a href="{{ route('employee.salary.increment',$salary->id) }}" class="btn btn-info" title="Salary Increment"><i class="fa fa-money"></i></a>
                                 <a href="{{ route('employee.registration.details',$salary->id) }}" class="btn btn-danger" target="_blank" title="Details"><i class="fa fa-eye"></i></a>
                               </td>
                               

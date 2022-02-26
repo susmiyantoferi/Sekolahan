@@ -202,7 +202,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('regist/employee/update/{id}', [EmployeeRegistController::class, 'EmployeeUpdate'])->name('update.employee.registration');
         Route::get('regist/employee/details/{id}', [EmployeeRegistController::class, 'EmployeeDetails'])->name('employee.registration.details');
 
-        //view employees registration All route
+        //view employees salary All route
         Route::get('salary/employee/view', [EmployeeSalaryController::class, 'SalaryView'])->name('employee.salary.view');
+        Route::get('salary/employee/increment/{id}', [EmployeeSalaryController::class, 'SalaryIncrement'])->name('employee.salary.increment');
+        Route::post('salary/employee/store/{id}', [EmployeeSalaryController::class, 'SalaryIncrementStore'])->name('update.increment.store');
     });
 });  //end middleware auth route 
