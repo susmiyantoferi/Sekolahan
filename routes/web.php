@@ -22,6 +22,7 @@ use App\Http\Controllers\Backend\Student\StudentRegistController;
 use App\Http\Controllers\Backend\Student\StudentRollController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegistController;
 use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
+use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -207,5 +208,9 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('salary/employee/increment/{id}', [EmployeeSalaryController::class, 'SalaryIncrement'])->name('employee.salary.increment');
         Route::post('salary/employee/store/{id}', [EmployeeSalaryController::class, 'SalaryIncrementStore'])->name('update.increment.store');
         Route::get('salary/employee/details/{id}', [EmployeeSalaryController::class, 'SalaryDetails'])->name('employee.salary.details');
+
+
+        //view employees leave All route
+        Route::get('leave/employee/view', [EmployeeLeaveController::class, 'LeaveView'])->name('employee.leave.view');
     });
 });  //end middleware auth route 
