@@ -95,4 +95,16 @@ class EmployeeLeaveController extends Controller
 
         return redirect()->route('employee.leave.view')->with($notification);
     }
+
+    public function LeaveDelete($id){
+        $leave =  EmployeeLeave::find($id); 
+        $leave->delete();
+        
+        $notification = array(
+            'message' => 'Employee Leave Data Deleted Successfully',
+            'alert-type' => 'warning',
+        );
+
+        return redirect()->route('employee.leave.view')->with($notification);
+    }
 }

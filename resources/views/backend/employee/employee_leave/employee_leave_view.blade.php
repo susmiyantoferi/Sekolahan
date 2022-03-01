@@ -60,7 +60,7 @@
                               <td>{{ $leave->end_date }}</td>
                               <td>
                                 <a href="{{ route('employee.leave.edit',$leave->id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('designation.delete',$leave->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                                <a href="{{ route('employee.leave.delete',$leave->id) }}" class="btn btn-danger" id="delete">Delete</a>
                               </td>
                               
                           </tr>
