@@ -221,5 +221,6 @@ Route::group(['middleware' => 'auth'], function () {
 
         //view employees Attendance All route
         Route::get('attendance/employee/view', [EmployeeAttendanceController::class, 'AttendanceView'])->name('employee.attendance.view');
+        Route::get('attendance/employee/add', [EmployeeAttendanceController::class, 'AttendanceAdd'])->name('employee.attendance.add');
     });
 });  //end middleware auth route 
