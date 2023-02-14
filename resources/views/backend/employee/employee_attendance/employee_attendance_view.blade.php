@@ -40,10 +40,7 @@
                       <thead>
                           <tr>
                               <th width="5%">No</th>
-                              <th>Name</th>
-                              <th>Id No</th>
                               <th>Date</th>
-                              <th>Attend Status</th>
                               <th width="25%">Action</th>
                               
                           </tr>
@@ -52,13 +49,10 @@
                         @foreach ($allData as $key => $attend)
                           <tr>
                               <td>{{ $key+1 }}</td>
-                              <td>{{ $attend ['user']['name']  }}</td>
-                              <td>{{ $attend ['user']['id_no'] }}</td>
                               <td>{{date('d-m-Y', strtotime($attend->date)) }}</td>
-                              <td>{{ $attend->attend_status }}</td>
                               <td>
-                                <a href="{{ route('employee.leave.edit',$attend->id) }}" class="btn btn-info">Edit</a>
-                                <a href="{{ route('employee.leave.delete',$attend->id) }}" class="btn btn-danger" id="delete">Delete</a>
+                                <a href="{{ route('employee.attendance.edit', $attend->date) }}" class="btn btn-info">Edit</a>
+                                <a href="{{ route('employee.attendance.details', $attend->date) }}" class="btn btn-danger" >Details</a>
                               </td>
                               
                           </tr>

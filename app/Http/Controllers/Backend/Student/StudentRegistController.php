@@ -12,7 +12,7 @@ use App\Models\StudentYear;
 use App\Models\User;
 use App\Models\DiscountStudent;
 use Illuminate\Support\Facades\DB;
-use PDF;
+use niklasravnsborg\LaravelPdf\Pdf;
 
 class StudentRegistController extends Controller
 {

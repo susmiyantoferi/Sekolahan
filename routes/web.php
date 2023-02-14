@@ -223,5 +223,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('attendance/employee/view', [EmployeeAttendanceController::class, 'AttendanceView'])->name('employee.attendance.view');
         Route::get('attendance/employee/add', [EmployeeAttendanceController::class, 'AttendanceAdd'])->name('employee.attendance.add');
         Route::post('attendance/employee/store', [EmployeeAttendanceController::class, 'AttendanceStore'])->name('employee.attendance.store');
+        Route::get('attendance/employee/edit/{date}', [EmployeeAttendanceController::class, 'AttendanceEdit'])->name('employee.attendance.edit');
+        Route::post('attendance/employee/update', [EmployeeAttendanceController::class, 'AttendanceUpdate'])->name('employee.attendance.update');
+        Route::get('attendance/employee/details/{date}', [EmployeeAttendanceController::class, 'AttendanceDetails'])->name('employee.attendance.details');
     });
 });  //end middleware auth route 
