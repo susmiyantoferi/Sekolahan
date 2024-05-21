@@ -20,9 +20,6 @@
 # Manage User 
  * view User (CRUD)
  * Manage User (CRUD)
-# Manage User 
- * view User (CRUD)
- * Manage User (CRUD)
 # Setup Management
  * Student Class (CRUD)
  * Student Year (CRUD)
