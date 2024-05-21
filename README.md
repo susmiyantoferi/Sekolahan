@@ -1,4 +1,6 @@
-  
+## About 
+User login pada aplikasi ini dibedakan menjadi 2 yaitu Admin dan operator, dimana jika user login admin dapat mengakses semua fitur menu yang ada apabila user operator tidak dapat mengakses fitur manage user selain itu bisa semua.
+
    # Teknologi Yang digunakan :
    * Laravel 8
    * PostgresSQL 13
